@@ -1,4 +1,5 @@
 import { FcGoogle } from "react-icons/fc";
+import { Link } from "react-router-dom";
 
 const Login = () => {
     return (
@@ -10,7 +11,11 @@ const Login = () => {
                         <p className="my-2">We'll create an account if you don't have one yet.</p>
                     </div>
                     <div className="w-64 mx-auto py-8">
-                        <button className="bg-white border-2 cursor-pointer flex items-center gap-3 rounded-xl border-gray-300 py-1 px-4"><FcGoogle />Continue with Google</button>
+                        <Link to='/notes'>
+                            <button className="bg-white border-2 cursor-pointer flex items-center gap-3 rounded-xl border-gray-300 py-1 px-4">
+                                <FcGoogle />Continue with Google
+                            </button>
+                        </Link>
                     </div>
                 </div>
             </div>
