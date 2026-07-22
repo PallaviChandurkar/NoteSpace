@@ -5,17 +5,26 @@ import { FaRegTrashCan } from "react-icons/fa6";
 import { IoSearch } from "react-icons/io5";
 import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addNote } from "../utilities/notesSlice";
+import { addNote,deleteNote,updateNote } from "../utilities/notesSlice";
 
 const Notes = () => {
-    const notes = useSelector((state) => state.notes.allnotes)
+    const notes = useSelector((state) => state.notes.allnotes)   
     const dispatch = useDispatch();
     const [showButton, setShowButton] = useState(true);
     const [text,setText] = useState("");
-    const [currentNote,setCurrentNote] = useState({ content: ""})
+    const [currentNote,setCurrentNote] = useState(null)
     const inputText = useRef();
 
+    console.log(notes);
+
     const createNote = () => {
+        const note = {
+            id: Date.now(),
+            content: ""
+        }
+        dispatch(addNote(note));
+        setCurrentNote(note);  
+        setText("");
         setShowButton(false);
     }
 
@@ -28,10 +37,15 @@ const Notes = () => {
     const handleTextChange = (e) => {
         const value = e.target.value;
         setText(value);
-        dispatch(addNote({
-            id: Date.now(),
+        dispatch(updateNote({
+            id: currentNote.id,
             content: value
         }))
+
+    }
+
+    const deletefunc = () => {
+        dispatch(deleteNote(currentNote.id))
     }
 
     
@@ -41,7 +55,7 @@ const Notes = () => {
             <div className="flex items-center px-6 gap-24 h-12 border-b border-gray-600">
                  <span className="text-xl"><IoMenuSharp /></span>
                 <h1 className="text-lg">All Notes</h1>
-                <span className="text-xl"><FaRegEdit /></span>
+                <span onClick={createNote} className="text-xl cursor-pointer"><FaRegEdit /></span>
             </div>
             <div className="flex gap-5 items-center px-6 py-2 border-b border-gray-600">
                 <span className="text-xl"><IoSearch /></span>
@@ -55,8 +69,9 @@ const Notes = () => {
                             style={{borderBottom: "1px solid black", cursor: "pointer"}}
                             onClick={() => {
                                 console.log(`Selected note: ${note.id}`);
-                                setCurrentNote(note.id)
+                                setCurrentNote(note)
                                 setText(note.content)
+                                inputText.current?.focus();
                             }}
                         > 
                             {note.content.slice(0,20)}
@@ -74,12 +89,12 @@ const Notes = () => {
         <div className="w-9/12">
             <div className="flex justify-between items-center h-12 px-6 border-b border-gray-600">
                 <span className="text-xl"><BsLayoutSidebar /></span>
-                <span className="text-xl"><FaRegTrashCan /></span>
+                <span onClick={deletefunc} className="text-xl cursor-pointer"><FaRegTrashCan /></span>
             </div>
             <div>
                 {
                     !showButton && 
-                    <textarea ref={inputText} onChange={handleTextChange} className="w-5xl h-96 border border-black m-14 p-3 "></textarea>
+                    <textarea ref={inputText} value={text} onChange={handleTextChange} className="w-5xl h-96 border border-black m-14 p-3 "></textarea>
                 }
             </div>
         </div>

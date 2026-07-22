@@ -12,9 +12,24 @@ const notesSlice = createSlice({
         // updateNote: (state, action) => {
         //     const noteindex = state.allnotes.indexOf((note) => note.id == action.payload.id);
         // }
+        updateNote: (state,action) => {
+            console.log({action})
+            const {id,content} = action.payload;
+            const note = state.allnotes.find((note)=>note.id===id);
+            
+            if(note){
+                note.content = content;
+                console.info('All notes: ', state.allnotes)
+            } else {
+                console.log('Note not found. ID: ', id)
+            }
+        },
+        deleteNote: (state,action) => {
+            state.allnotes = state.allnotes.filter((note)=>note.id!==action.payload.id)
+        }
     }
 })
 
-export const { addNote } = notesSlice.actions
+export const { addNote,updateNote ,deleteNote} = notesSlice.actions
 
 export default notesSlice.reducer
