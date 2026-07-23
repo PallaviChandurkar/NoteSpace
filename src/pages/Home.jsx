@@ -1,11 +1,16 @@
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
+import { useSelector } from "react-redux";
 
 function Home(){
+
+    const isDarkTheme = useSelector((state)=>state.theme.isDarkTheme);
+
     return (
         <>
+            <div className={isDarkTheme ? "w-screen h-screen bg-white text-black" : "w-screen h-screen bg-gray-800 text-white"}>
             <Navbar />
-            <div className="">
+            <div>
                 <div className="max-w-6/12 mx-auto my-24">
                     <h1 className="text-5xl font-bold my-5">The simplest way to keep notes</h1>
                     <p className="text-xl text-center">All your notes, synced on all your devices. Get Simplenote now for iOS, Android, Mac, Windows, Linux, or in your browser.</p>
@@ -15,6 +20,7 @@ function Home(){
                         </Link>
                     </div>    
                 </div>
+            </div>
             </div>
         </>
     )

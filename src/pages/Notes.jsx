@@ -6,16 +6,19 @@ import { IoSearch } from "react-icons/io5";
 import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addNote,deleteNote,updateNote } from "../utilities/notesSlice";
+import { Link } from "react-router-dom";
+import { changeTheme } from "../utilities/themeSlice";
+import { MdOutlineDarkMode } from "react-icons/md";
+import { MdOutlineLightMode } from "react-icons/md";
 
 const Notes = () => {
-    const notes = useSelector((state) => state.notes.allnotes)   
+    const notes = useSelector((state) => state.notes.allnotes) 
+    const isDarkTheme = useSelector((state) => state.theme.isDarkTheme)  
     const dispatch = useDispatch();
     const [showButton, setShowButton] = useState(true);
     const [text,setText] = useState("");
     const [currentNote,setCurrentNote] = useState(null)
     const inputText = useRef();
-
-    console.log(notes);
 
     const createNote = () => {
         const note = {
@@ -48,12 +51,16 @@ const Notes = () => {
         dispatch(deleteNote(currentNote.id))
     }
 
+    const togglefunc = () => {
+        dispatch(changeTheme());
+    }
+
     
   return (
-    <div className="flex h-screen">
+    <div className={isDarkTheme ? "flex h-screen bg-white text-black" : "flex h-screen bg-gray-800 text-white"}>
         <div className="w-3/12 border-r border-gray-600">
             <div className="flex items-center px-6 gap-24 h-12 border-b border-gray-600">
-                 <span className="text-xl"><IoMenuSharp /></span>
+                <Link to="/"><span className="text-xl"><IoMenuSharp /></span></Link>
                 <h1 className="text-lg">All Notes</h1>
                 <span onClick={createNote} className="text-xl cursor-pointer"><FaRegEdit /></span>
             </div>
@@ -89,7 +96,10 @@ const Notes = () => {
         <div className="w-9/12">
             <div className="flex justify-between items-center h-12 px-6 border-b border-gray-600">
                 <span className="text-xl"><BsLayoutSidebar /></span>
-                <span onClick={deletefunc} className="text-xl cursor-pointer"><FaRegTrashCan /></span>
+                <div className="flex gap-4 items-center">
+                    <span onClick={deletefunc} className="text-xl cursor-pointer"><FaRegTrashCan /></span>
+                    <button onClick={togglefunc} className="px-4 py-1 border-2 border-gray-300 rounded-lg cursor-pointer">{isDarkTheme ? <MdOutlineDarkMode /> : <MdOutlineLightMode /> }</button>
+                </div>
             </div>
             <div>
                 {
