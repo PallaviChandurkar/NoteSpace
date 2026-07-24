@@ -32,10 +32,10 @@ const Notes = () => {
     }
 
     useEffect(() => {
-        if(!showButton && inputText.current){
+        if(currentNote && inputText.current){
             inputText.current.focus();
         }
-    },[showButton])
+    },[currentNote])
 
     const handleTextChange = (e) => {
         const value = e.target.value;
@@ -49,6 +49,7 @@ const Notes = () => {
 
     const deletefunc = () => {
         dispatch(deleteNote(currentNote.id))
+        console.log("function called",currentNote.id)
     }
 
     const togglefunc = () => {
@@ -103,7 +104,7 @@ const Notes = () => {
             </div>
             <div>
                 {
-                    !showButton && 
+                    currentNote && 
                     <textarea ref={inputText} value={text} onChange={handleTextChange} className="w-5xl h-96 border border-black m-14 p-3 "></textarea>
                 }
             </div>

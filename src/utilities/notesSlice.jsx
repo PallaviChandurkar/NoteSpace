@@ -13,7 +13,7 @@ const notesSlice = createSlice({
         //     const noteindex = state.allnotes.indexOf((note) => note.id == action.payload.id);
         // }
         updateNote: (state,action) => {
-            console.log({action})
+            //console.log({action})
             const {id,content} = action.payload;
             const note = state.allnotes.find((note)=>note.id===id);
             
@@ -26,6 +26,7 @@ const notesSlice = createSlice({
         },
         deleteNote: (state,action) => {
             state.allnotes = state.allnotes.filter((note)=>note.id!==action.payload.id)
+            console.log("function called")
         }
     }
 })
