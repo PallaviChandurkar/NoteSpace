@@ -60,7 +60,7 @@ const Notes = () => {
     <div className={isDarkTheme ? "flex h-screen bg-white text-black" : "flex h-screen bg-gray-800 text-white"}>
         <div className="w-3/12 border-r border-gray-600">
             <div className="flex items-center px-6 gap-24 h-12 border-b border-gray-600">
-                <Link to="/"><span className="text-xl"><IoMenuSharp /></span></Link>
+                <Link to="/sidebar"><span className="text-xl"><IoMenuSharp /></span></Link>
                 <h1 className="text-lg">All Notes</h1>
                 <span onClick={createNote} className="text-xl cursor-pointer"><FaRegEdit /></span>
             </div>

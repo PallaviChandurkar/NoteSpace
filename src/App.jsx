@@ -6,6 +6,7 @@ import Login from "./pages/Login";
 import { Routes, Route } from "react-router-dom";
 import Notes from "./pages/Notes";
 import './index.css'
+import Sidebar from "./components/Sidebar";
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
         <Route path="/contactus" element={<ContactUs/>} /> */}
         <Route path="/login" element={<Login/>} />
         <Route path="/notes" element={<Notes/>} />
+        <Route path="/sidebar" element={<Sidebar/>} />
       </Routes>
     </>
   )

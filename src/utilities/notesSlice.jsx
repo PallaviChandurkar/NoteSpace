@@ -19,9 +19,9 @@ const notesSlice = createSlice({
             
             if(note){
                 note.content = content;
-                console.info('All notes: ', state.allnotes)
+                //console.info('All notes: ', state.allnotes)
             } else {
-                console.log('Note not found. ID: ', id)
+                //console.log('Note not found. ID: ', id)
             }
         },
         deleteNote: (state,action) => {
