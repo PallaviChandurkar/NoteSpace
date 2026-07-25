@@ -48,7 +48,8 @@ const Notes = () => {
     }
 
     const deletefunc = () => {
-        dispatch(deleteNote(currentNote.id))
+        dispatch(deleteNote(currentNote));
+        setText("");
         console.log("function called",currentNote.id)
     }
 
