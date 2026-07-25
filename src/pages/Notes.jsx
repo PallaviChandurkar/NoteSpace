@@ -23,7 +23,7 @@ const Notes = () => {
     const createNote = () => {
         const note = {
             id: Date.now(),
-            content: ""
+            content: "New Note..."
         }
         dispatch(addNote(note));
         setCurrentNote(note);  
