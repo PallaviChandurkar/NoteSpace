@@ -40,6 +40,10 @@ const Notes = () => {
     const handleTextChange = (e) => {
         const value = e.target.value;
         setText(value);
+
+        e.target.style.height = "auto";
+        e.target.style.height = `${e.target.scrollHeight}px`;
+
         dispatch(updateNote({
             id: currentNote.id,
             content: value
@@ -59,7 +63,7 @@ const Notes = () => {
 
     
   return (
-    <div className={isDarkTheme ? "flex h-screen bg-white text-black" : "flex h-screen bg-gray-800 text-white"}>
+    <div className={isDarkTheme ? "h-screen flex bg-white text-black" : "h-screen flex bg-gray-800 text-white"}>
         <div className="w-3/12 border-r border-gray-600">
             <div className="flex items-center px-6 gap-24 h-12 border-b border-gray-600">
                 <Link to="/sidebar"><span className="text-xl"><IoMenuSharp /></span></Link>
@@ -103,10 +107,10 @@ const Notes = () => {
                     <button onClick={togglefunc} className="px-4 py-1 border-2 border-gray-300 rounded-lg cursor-pointer">{isDarkTheme ? <MdOutlineDarkMode /> : <MdOutlineLightMode /> }</button>
                 </div>
             </div>
-            <div>
+            <div className="h-screen p-4">
                 {
                     currentNote && 
-                    <textarea ref={inputText} value={text} onChange={handleTextChange} className="w-5xl h-96 border border-black m-14 p-3 "></textarea>
+                    <textarea ref={inputText} value={text} onChange={handleTextChange} className="w-5xl min-h-screen p-3 resize-none outline-none"></textarea>
                 }
             </div>
         </div>
