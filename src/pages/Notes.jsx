@@ -74,12 +74,12 @@ const Notes = () => {
                 <span className="text-xl"><IoSearch /></span>
                 <p>Search all notes and tags</p>
             </div>
-            <div className="px-6 py-2 bg-gray-300 border-b border-b-white">
+            <div className="pl-6 py-2 bg-gray-300 border-b border-b-white">
                 {
                     notes.map((note) => (
                         <div 
                             key={note.id} 
-                            style={{borderBottom: "1px solid black", cursor: "pointer"}}
+                            style={{borderBottom: "1px solid white",lineHeight:"2.5", cursor: "pointer"}}
                             onClick={() => {
                                 console.log(`Selected note: ${note.id}`);
                                 setCurrentNote(note)
