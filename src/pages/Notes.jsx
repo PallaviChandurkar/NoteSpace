@@ -70,9 +70,10 @@ const Notes = () => {
                 <h1 className="text-lg">All Notes</h1>
                 <span onClick={createNote} className="text-xl cursor-pointer"><FaRegEdit /></span>
             </div>
-            <div className="flex gap-5 items-center px-6 py-2 border-b border-gray-600">
-                <span className="text-xl"><IoSearch /></span>
-                <p>Search all notes and tags</p>
+            <div className="">
+                <input className="w-80 mx-7 outline-none py-2 px-3" type="text" placeholder="Search all notes and tags" />
+                {/* <span className="text-xl"><IoSearch /></span>
+                <p>Search all notes and tags</p> */}
             </div>
             <div className="pl-6 py-2 bg-gray-300 border-b border-b-white">
                 {
