@@ -5,7 +5,7 @@ const Login = () => {
     return (
         <>
             <div>
-                <div className="w-96 mx-auto my-20 bg-blue-200 rounded-xl">
+                <div className="w-72 md:w-96 mx-auto my-20 bg-blue-200 rounded-xl">
                     <div className="text-center w-60 mx-auto py-10">
                         <h1 className="text-xl font-bold">Sign in to NoteSpace</h1>
                         <p className="my-2">We'll create an account if you don't have one yet.</p>

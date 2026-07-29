@@ -8,7 +8,7 @@ const Navbar = () => {
 
   return (
     <div>
-         <div className={isDarkTheme ? "max-w-8/12 py-4 mx-auto bg-white text-black" : "max-w-8/12 py-4 mx-auto bg-gray-800 text-white"}>
+         <div className={isDarkTheme ? "md:w-10/12 lg:max-w-8/12 px-4 py-4 md:mx-auto bg-white text-black" : "max-w-8/12 py-4 mx-auto bg-gray-800 text-white"}>
                 <div className="flex justify-between">
                     <div className="flex items-center gap-3">
                         <Link to='/'><img className="w-10" src={LOGO} alt="logo" /></Link>
