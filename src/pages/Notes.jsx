@@ -64,8 +64,8 @@ const Notes = () => {
     
   return (
     <div className={isDarkTheme ? "h-screen flex bg-white text-black" : "h-screen flex bg-gray-800 text-white"}>
-        <div className="w-3/12 border-r border-gray-600">
-            <div className="flex items-center px-6 gap-24 h-12 border-b border-gray-600">
+        <div className="w-full md:w-3/12 border-r border-gray-600">
+            <div className="flex items-center px-6 gap-16 h-12 border-b border-gray-600">
                 <Link to="/sidebar"><span className="text-xl"><IoMenuSharp /></span></Link>
                 <h1 className="text-lg">All Notes</h1>
                 <span onClick={createNote} className="text-xl cursor-pointer"><FaRegEdit /></span>
@@ -100,7 +100,7 @@ const Notes = () => {
                 </div>
             }
         </div>
-        <div className="w-9/12">
+        <div className="lg:w-9/12">
             <div className="flex justify-between items-center h-12 px-6 border-b border-gray-600">
                 <span className="text-xl"><BsLayoutSidebar /></span>
                 <div className="flex gap-4 items-center">
