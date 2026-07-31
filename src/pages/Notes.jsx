@@ -100,7 +100,7 @@ const Notes = () => {
                 </div>
             }
         </div>
-        <div className="lg:w-9/12">
+        <div className=" md:w-9/12">
             <div className="flex justify-between items-center h-12 px-6 border-b border-gray-600">
                 <span className="text-xl"><BsLayoutSidebar /></span>
                 <div className="flex gap-4 items-center">
