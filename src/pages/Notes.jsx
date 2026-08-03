@@ -65,13 +65,13 @@ const Notes = () => {
   return (
     <div className={isDarkTheme ? "h-screen flex bg-white text-black" : "h-screen flex bg-gray-800 text-white"}>
         <div className="w-full md:w-3/12 border-r border-gray-600">
-            <div className="flex items-center px-6 md:px-2 gap-16 md:gap-8 h-12 border-b border-gray-600">
+            <div className="flex items-center px-6 md:px-2 lg:px-4 gap-16 md:gap-8 lg:gap-28 h-12 border-b border-gray-600">
                 <Link to="/sidebar"><span className="text-xl"><IoMenuSharp /></span></Link>
-                <h1 className="text-lg md:text-sm">All Notes</h1>
+                <h1 className="text-lg md:text-sm lg:text-lg">All Notes</h1>
                 <span onClick={createNote} className="text-xl cursor-pointer"><FaRegEdit /></span>
             </div>
             <div className="">
-                <input className="w-80 md:w-44 mx-7 md:mx-2 text-sm outline-none py-2 px-3 md:px-1" type="text" placeholder="Search all notes and tags" />
+                <input className="w-80 md:w-44 lg:w-80 mx-7 md:mx-2 text-sm lg:text-lg outline-none py-2 px-3 md:px-1" type="text" placeholder="Search all notes and tags" />
                 {/* <span className="text-xl"><IoSearch /></span>
                 <p>Search all notes and tags</p> */}
             </div>
@@ -95,17 +95,17 @@ const Notes = () => {
             </div>
             {
                 showButton && 
-                <div className="my-40 md:my-24 text-center">
-                    <button onClick={createNote} className="text-blue-800 md:text-sm cursor-pointer">Create your first note</button>
+                <div className="my-40 md:my-24 lg:my-40 text-center">
+                    <button onClick={createNote} className="text-blue-800 md:text-sm lg:text-lg cursor-pointer">Create your first note</button>
                 </div>
             }
         </div>
-        <div className="md:w-9/12">
-            <div className="flex justify-between items-center h-12 px-6 md:px-1 border-b border-gray-600">
+        <div className="md:w-5/12 lg:w-9/12">
+            <div className="flex justify-between items-center h-12 px-6 md:px-2 lg:px-6 border-b border-gray-600">
                 <span className="text-xl"><BsLayoutSidebar /></span>
-                <div className="flex gap-4 items-center">
+                <div className="flex gap-4 md:gap-3 lg:gap-4 items-center">
                     <span onClick={deletefunc} className="text-xl cursor-pointer"><FaRegTrashCan /></span>
-                    <button onClick={togglefunc} className="px-4 py-1 border-2 border-gray-300 rounded-lg cursor-pointer">{isDarkTheme ? <MdOutlineDarkMode /> : <MdOutlineLightMode /> }</button>
+                    <button onClick={togglefunc} className="px-4 md:px-1 lg:px-2 py-1 border-2 border-gray-300 rounded-lg cursor-pointer">{isDarkTheme ? <MdOutlineDarkMode /> : <MdOutlineLightMode /> }</button>
                 </div>
             </div>
             <div className="h-screen p-4">
