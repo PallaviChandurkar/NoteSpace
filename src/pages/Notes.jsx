@@ -75,7 +75,8 @@ const Notes = () => {
                 {/* <span className="text-xl"><IoSearch /></span>
                 <p>Search all notes and tags</p> */}
             </div>
-            <div className="pl-6 py-2 bg-gray-300 border-b border-b-white">
+            <div className="bg-gray-300 p-1">
+            <div className="border-b border-b-white">
                 {
                     notes.map((note) => (
                         <div 
@@ -92,6 +93,7 @@ const Notes = () => {
                         </div>
                     ))
                 }
+            </div>
             </div>
             {
                 showButton && 
